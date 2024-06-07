@@ -53,8 +53,12 @@ public class ProductConsumerPactTest {
                 .headers(headers())
                 .body(newJsonBody(object -> {
                     object.stringType("id", "10");
+//                    object.stringMatcher("id", "\\d{2}", "10"); // Regex Matching
+//                    object.numberType("id", 100);
                     object.stringType("type", "CREDIT_CARD");
                     object.stringType("name", "28 Degrees");
+//                    object.stringValue("name", "28 Degrees"); // Include Matching not directly supported
+//                    object.dateTime("createdAt", "yyyy-MM-dd'T'HH:mm:ss"); // DateTime Matching
                 }).build())
                 .toPact();
     }
